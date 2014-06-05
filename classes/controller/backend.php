@@ -2,7 +2,7 @@
 
 namespace Config;
 
-class Controller_Backend extends \Controller_Base_Backend
+class Controller_Backend extends \Backend\Controller_Backend
 {
     public $module = 'config';
     public $dataGlobal = array();

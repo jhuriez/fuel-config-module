@@ -29,7 +29,7 @@ This module is not securised, i've not added a ACL or Auth security. You need to
 In `modules/config/classes/controller/backend.php` at line 5 :
 
 ```php
-  class Controller_Backend extends \Controller_Base_Backend
+  class Controller_Backend extends \Backend\Controller_Backend
 ```
 
 You can see an example of a simple controller using theme here : [`example/simple_controller.php`](http://github.com/jhuriez/fuel-lb-package/blob/master/example/simple_controller.php)
@@ -63,8 +63,8 @@ Access the backoffice at : http://your-fuel-url/config/backend
 - Fuel\Core\ThemeException [ Error ]: Theme "default" could not be found.
 It's because this module uses Themes for better flexibility. You must create a theme folder, by default it's DOCROOT/themes/default.
 
-- ErrorException [ Fatal Error ]: Class 'Controller_Base_Backend' not found.
-It's because the controller \Config\Controller_Backend need to extends your admin controller in your project. In my case, the admin controller is named Controller_Base_Backend
+- ErrorException [ Fatal Error ]: Class '\Backend\Controller_Backend' not found.
+It's because the controller \Config\Controller_Backend need to extends your admin controller in your project. In my case, the admin controller is named \Backend\Controller_Backend
 
 # Override Theme
 
