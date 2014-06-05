@@ -18,6 +18,7 @@ class Controller_Backend_Index extends \Config\Controller_Backend
 
         foreach($configs as $config)
         {
+            if (empty($config)) continue;
             $file = $config['file'];
             foreach($config['list'] as $key => $value)
             {
