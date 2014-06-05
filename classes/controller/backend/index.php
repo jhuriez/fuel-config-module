@@ -73,6 +73,9 @@ class Controller_Backend_Index extends \Config\Controller_Backend
                     {
                         $value = $config['value'];
                     }
+
+                    if (is_numeric($value)) $value = (is_float($value) ? (float)$value : (int)$value);
+
                     \Config::set('lbconfig.configs.'.$config['file'].'.list.'.$key.'.value', $value);
                 }
 
