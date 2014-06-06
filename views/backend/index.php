@@ -19,20 +19,20 @@
 				<div class="tab-pane <?= ($i==0) ? 'active' : ''; ?>" id="<?= \Inflector::friendly_title($tabName); ?>">
 					<br/>
 					<?php $nbPanel = 0; ?>
-					<?php foreach($panels as $panelName => $configs): ?>
+					<?php foreach($panels as $panelName => $panel): ?>
 						<?php $nbPanel++; ?>
 						<?php if($nbPanel == 1): ?>
 							<div class="row">
 						<?php endif; ?>
 
 						<div class="col-md-4">
-							<section class="panel panel-default">
+							<section class="panel <?= $panel['panel_class']; ?>">
 								<div class="panel-heading">
 									<?= $panelName; ?>
 								</div>
 
 								<div class="panel-body">
-									<?php foreach($configs as $key => $config): ?>
+									<?php foreach($panel['configs'] as $key => $config): ?>
 										<?php
 											$name = 'configs['.$key.']';
 											$nameFile = $name . '[file]';

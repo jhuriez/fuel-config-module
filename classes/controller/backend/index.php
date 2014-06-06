@@ -23,6 +23,9 @@ class Controller_Backend_Index extends \Config\Controller_Backend
             foreach($config['list'] as $key => $value)
             {
                 $panelName = (isset($value['panel']) ? $value['panel'] : (isset($config['module']['panel']) ? $config['module']['panel'] : 'Config'));
+                $panelClass = (isset($value['panel_class']) ? $value['panel_class'] : (isset($config['module']['panel_class']) ? $config['module']['panel_class'] : 'panel-default'));
+                
+
                 $tabName = (isset($value['tab']) ? $value['tab'] : (isset($config['module']['tab']) ? $config['module']['tab'] : 'Config'));
                 $label = isset($value['label']) ? $value['label'] : $key;
                 $rules = isset($value['rules']) ? $value['rules'] : array();
@@ -40,11 +43,12 @@ class Controller_Backend_Index extends \Config\Controller_Backend
                 $type = isset($value['type']) ? $value['type'] : (is_bool($value['value']) ? 'bool' : (empty($values) ? 'input' : 'select'));
                 $value = $value['value'];
 
-                $tabs[$tabName][$panelName][$key]['label'] = $label;
-                $tabs[$tabName][$panelName][$key]['value'] = $value;
-                $tabs[$tabName][$panelName][$key]['values'] = $values;
-                $tabs[$tabName][$panelName][$key]['type'] = $type;
-                $tabs[$tabName][$panelName][$key]['file'] = $file;
+                $tabs[$tabName][$panelName]['panel_class'] = $panelClass;
+                $tabs[$tabName][$panelName]['configs'][$key]['label'] = $label;
+                $tabs[$tabName][$panelName]['configs'][$key]['value'] = $value;
+                $tabs[$tabName][$panelName]['configs'][$key]['values'] = $values;
+                $tabs[$tabName][$panelName]['configs'][$key]['type'] = $type;
+                $tabs[$tabName][$panelName]['configs'][$key]['file'] = $file;
 
                 // Add field
                 $name = 'configs['.$key.'][value]';
